@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{%  url 'auctionBid' auction.id %}" method="post" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <table class="auction_item">
+            <tr>
+                <td>
+                    Title
+                </td>
+                <td>
+                    {{ auction.title }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seller
+                </td>
+                <td>
+                    {{ auction.seller_name }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Item description
+                </td>
+                <td>
+                    {{ auction.description }}
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <div class="error_message">
+            {{ question }}
+            <br><br>
+            <input type="hidden" name="bid" value="{{ bid }}">
+            <button type="submit" name="action" value="confirm">Yes</button>
+            <button type="submit" name="action" value="decline">Nope</button>
+        </div>
+    </form>
+{% endblock %}

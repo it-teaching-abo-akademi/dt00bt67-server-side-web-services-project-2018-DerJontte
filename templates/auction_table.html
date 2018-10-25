@@ -1,0 +1,74 @@
+<table class="auction_item">
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            {{ auction.title }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Seller
+        </td>
+        <td>
+            {{ auction.seller_name }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Item description
+        </td>
+        <td>
+            {{ auction.description }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Starting price
+        </td>
+        <td>
+            {{ starting_price }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Number of bids
+        </td>
+        <td>
+            {{ auction.bidders_set.count }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Current price
+        </td>
+        <td>
+            {{ current_price }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Highest bid by
+        </td>
+        <td>
+            {{ auction.current_winner_name }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Auction closing time
+        </td>
+        <td>
+            {{ auction.time_closing }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Posted on
+        </td>
+        <td>
+            {{ auction.time_posted }}
+        </td>
+    </tr>
+</table>

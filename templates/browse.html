@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+Number of auctions: {{ auctions.count }}<br><br>
+    {% for auction in auctions %}
+        <a href="{% url 'auctions' %}{{ auction.id }}">{{ auction.title }}</a><br>
+    {% endfor %}
+{% endblock %}

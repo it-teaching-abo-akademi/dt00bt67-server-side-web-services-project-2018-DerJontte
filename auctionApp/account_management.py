@@ -1,0 +1,104 @@
+from sqlite3 import IntegrityError
+
+from django.contrib.auth import logout
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+from django.views import View
+
+from auctionApp.currency import Currency
+from auctionApp.forms import AddNewUserForm, EditUserForm
+from auctionApp.models import UserSettings
+
+
+class AddUser(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('home')
+        signup_form = AddNewUserForm
+        return render(request, "signup.html", {'page_name': 'Sign up',
+                                               'signup_form': signup_form})
+
+    def post(self, request):
+        form = AddNewUserForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data;
+            username = data['username']
+            if not data['password1'] == data['password2']:
+                return render(request, 'edit_account.html', {'form': form,
+                                                             'error_message': 'Passwords do not match'})
+            else:
+                password = make_password(data['password1'])
+            email = data['email']
+            try:
+                new_user = User(username=username, email=email, password=password)
+                user_settings = UserSettings(id=request.user.id, currency=data['currency'])
+                user_settings.save()
+                new_user.save()
+            except IntegrityError:
+                return render(request, 'signup.html', {'signup_form': form,
+                                                       'error_message': "User name is already taken, please choose another name."})
+            return render(request, 'home.html',
+                          {'info_message': 'New account created for user ' + str(new_user.username)})
+        else:
+            return render(request, 'signup.html', {'signup_form': form,
+                                                   'error_message': 'Sorry, something went wrong. Please check all fields and try again.'})
+
+
+class EditUser(View):
+    global options
+    options = Currency.code_list()
+
+    def get(self, request):
+        if not request.user.is_authenticated:
+            return redirect('home')
+        form = EditUserForm(initial={'email': request.user.email,
+                                     'currency': request.session['currency']})
+        return render(request, "edit_account.html", {'page_name': 'Edit account information',
+                                                     'form': form,
+                                                     'options': options})
+
+    def post(self, request):
+        form = EditUserForm(request.POST)
+        if form.is_valid():
+            info_message = ''
+            error_message = ''
+            user = request.user
+            data = form.cleaned_data
+            currency = request.POST['currency']
+            email = data['email']
+            password1 = data['new_password1']
+            password2 = data['new_password2']
+            if user.check_password(data['old_password']):
+                if currency != request.session['currency']:
+                    request.session['currency'] = currency
+                    if UserSettings.objects.all().filter(id=request.user.id) is not None:
+                        usersettings = UserSettings.objects.get(id=request.user.id)
+                        usersettings.currency = currency
+                    else:
+                        usersettings = UserSettings(id = request.user.id, currency = currency)
+                    usersettings.save()
+                    info_message = 'Currency preference updated.\n'
+                if email != request.user.email:
+                    user.email = email
+                    user.save()
+                    info_message = info_message.__add__('Email changed to ' + email + "\n")
+                if password1 and password2:
+                    if password1 == password2:
+                        if not user.check_password(password1):
+                            user.set_password(password1)
+                            user.save()
+                            logout(request)
+                            info_message = info_message.__add__(
+                                'Password changed. Please login with your new password.\n')
+                            return render(request, 'home.html', {'info_message': info_message})
+                        else:
+                            error_message = 'New password cannot be the same as old password.'
+                    else:
+                        error_message = 'Passwords do not match'
+            return render(request, 'edit_account.html', {'form': form,
+                                                         'error_message': error_message,
+                                                         'info_message': info_message,
+                                                         'options': options,})
+
+

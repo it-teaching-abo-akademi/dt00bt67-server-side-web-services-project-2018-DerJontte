@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load static %}
+
+
+<html>
+<head>
+    <style>
+        {% include 'static/styles.css' %}
+    </style>
+    <title>
+        {% if page_name %}
+            {{ page_name }}
+        {% else %}
+            Awesome auctions!
+        {% endif %}
+    </title>
+</head>
+
+<body>
+{% include "navigation.html" %}
+{% include "top.html" %}
+
+<div class="content">
+    {% if info_message %}
+        <pre><p class="info_message">{{ info_message }}</p></pre><br>
+    {% endif %}
+    {% if error_message %}
+        <pre><p class="error_message">{{ error_message }}</p></pre><br>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</div>
+
+<div class="right"></div>
+
+</body>
+</html>

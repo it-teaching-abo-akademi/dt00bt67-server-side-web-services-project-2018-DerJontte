@@ -1,0 +1,35 @@
+<script>
+    function validateForm() {
+        var input = document.getElementById("new_bid")
+        bid = input.value;
+        if (bid <= {{ auction.current_price }}) {
+            alert("New bid must be higher than the current bid.");
+            return false;
+        }
+        if (isNaN(bid)){
+            alert("Please input a number.")
+            return false;
+        }
+        if (bid.includes(".") && bid.split(".")[1].length > 2) {
+            alert("Please use numbers with two decimal places or less.")
+            return false;
+        }
+    }
+
+    function updateCur(){
+        var input = document.getElementById("new_bid")
+        var output = document.getElementById("converted");
+        output.innerHTML = (input.value * {{ rate }}).toFixed(2)
+    }
+</script>
+
+{% if auction.active and not auction.banned %}
+<form action="{%  url 'auctionBid' auction.id %}" method="post" onsubmit="return validateForm()">
+    {% csrf_token %}
+    <input id="new_bid" name="new_bid" value="{{ auction.current_price }}" oninput="updateCur()" size="3" style="text-align: center; padding-right: 5px"/> EUR
+    {% if currency != 'EUR' %}
+    = <h id="converted">{{ starting_sum }} </h> {{ currency }}
+    {% endif %}
+    <input type="submit" name="action" value="Place bid">
+</form><br>
+{% endif %}

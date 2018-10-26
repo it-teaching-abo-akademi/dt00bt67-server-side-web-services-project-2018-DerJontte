@@ -1,10 +1,8 @@
 import re
-
-import pytz
-import datetime
+from importlib import import_module
+from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail
-from django.db import transaction
 from django.shortcuts import redirect, render
 
 from auctionApp.auctions_browse import BrowseAuctions
@@ -100,3 +98,5 @@ def make_slug_hash(input):
     input = make_password(input)
     output = re.sub('(\W)|(pbkdf2_sha256)', '', input);
     return output
+
+

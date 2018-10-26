@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from auctionApp.account_management import EditUser, AddUser
+from auctionApp.account_management import EditUser, AddUser, ChangeCurrency
 from auctionApp.auction_add import AddAuction
 from auctionApp.auction_bid import BidAuction
 from auctionApp.auction_edit import EditAuction
@@ -39,6 +39,7 @@ urlpatterns = [
     path('search/<slug:query>', Search.as_view, name='search'),
     path('signup/', AddUser.as_view(), name='signup'),
     path('edit_account/', EditUser.as_view(), name='edit_account'),
+    path('change_currency/', ChangeCurrency.as_view(), name='change_currency'),
     path('login/', Login.as_view(), name='login'),
     path('logout/', Logout.as_view(), name='logout'),
     path('admin_task/', BanAuction.as_view(), name='ban_auction'),

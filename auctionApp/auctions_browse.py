@@ -1,18 +1,18 @@
 from datetime import datetime
-
-from django.db import transaction
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-
 from auctionApp.currency import Currency
-from auctionApp.forms import AddAuctionForm
 from auctionApp.models import Auction
+from django import template
 
 
 class BrowseAuctions(View):
     def get(self, request, **messages):
-        auctions = Auction.objects.all().filter(active=True, banned=False)
+        if not 'currency' in request.session:
+            request.session['currency'] = 'EUR'
+        if not 'currencies' in request.session:
+            request.session['currencies'] = Currency.code_list()
+        auctions = Auction.objects.all().filter(active=True, banned=False).order_by('-time_closing')
         info_message = messages.get('info_message')
         error_message = messages.get('error_message')
         return render(request, 'browse.html', {'auctions': auctions,

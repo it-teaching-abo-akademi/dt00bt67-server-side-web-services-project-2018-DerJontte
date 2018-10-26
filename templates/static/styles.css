@@ -18,6 +18,10 @@ table {
     display: inline-block;
 }
 
+th {
+    text-align: left;
+}
+
 .info_message {
     color: blue;
     font-weight: bold;

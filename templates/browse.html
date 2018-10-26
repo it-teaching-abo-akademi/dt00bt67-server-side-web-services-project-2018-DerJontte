@@ -1,8 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-Number of auctions: {{ auctions.count }}<br><br>
-    {% for auction in auctions %}
-        <a href="{% url 'auctions' %}{{ auction.id }}">{{ auction.title }}</a><br>
-    {% endfor %}
+    {% include 'currency_picker.html' %}
+    Number of auctions: {{ auctions.count }}<br><br>
+    <table border="0" cellpadding="4">
+            <tr>
+                <th width="100">
+                    Item name
+                </th>
+                <th width="350">
+                    Description
+                </th>
+                <th colspan="2" width="300">
+                    Current price
+                </th>
+                <th width="250">
+                    Closing time
+                </th>
+                <th>
+                    Seller
+                </th>
+            </tr>
+        {% for auction in auctions %}
+            <tr>
+                <td>
+                    <a href="{% url 'auctions' %}{{ auction.id }}">{{ auction.title }}</a>
+                </td>
+                <td>
+                    {{ auction.description }}
+                </td>
+                <td width="75">
+                    {{ auction.current_price }}
+                </td>
+                <td>
+                    {{ request.session.currency }}
+                </td>
+                <td>
+                    {{ auction.time_closing }}
+                </td>
+                <td>
+                    {{  auction.seller_name }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-import pytz
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.db import transaction
@@ -40,7 +39,7 @@ class BidAuction(View):
                 auction = (Auction.objects.select_for_update().get(id=number))
                 if auction.description == request.session['description']:
                     old_winner = auction.current_winner_id
-                    new_winner = get_user_name(request.user.id)
+                    new_winner = request.user.username
                     if old_winner is not None:
                         old_winner_email = User.objects.get(id=auction.current_winner_id).email
                     else:
@@ -56,7 +55,7 @@ class BidAuction(View):
                         auction.current_price = new_bid
                         auction.current_winner_id = request.user.id
                         auction.current_winner_name = request.user.username
-                        auction.bidders_set.create(user_id=request.user.id, name=request.user.username, email=request.user.email, price=new_bid)
+                        auction.bid_set.create(user_id=request.user.id, name=request.user.username, email=request.user.email, price=new_bid)
                         diff = int(closing_time) - int(current_time)
                         seconds = round((diff / 100 * 60) + (diff % 60), 0)
                         print(seconds)

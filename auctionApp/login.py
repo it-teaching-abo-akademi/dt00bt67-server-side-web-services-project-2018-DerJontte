@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.views import View
 
+from auctionApp.currency import Currency
 from auctionApp.models import UserSettings
 from auctionApp.views import referer
 
@@ -12,6 +13,7 @@ class Login(View):
         return redirect('home')
 
     def post(self, request):
+        request.session['currencies'] = Currency.code_list()
         username = request.POST['username']
         password = request.POST['password']
         try:

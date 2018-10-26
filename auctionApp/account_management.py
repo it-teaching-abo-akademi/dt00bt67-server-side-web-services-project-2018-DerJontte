@@ -52,8 +52,7 @@ class EditUser(View):
     def get(self, request):
         if not request.user.is_authenticated:
             return redirect('home')
-        form = EditUserForm(initial={'email': request.user.email,
-                                     'currency': request.session['currency']})
+        form = EditUserForm(initial={'email': request.user.email})
         return render(request, "edit_account.html", {'page_name': 'Edit account information',
                                                      'form': form,
                                                      'options': options})
@@ -65,20 +64,10 @@ class EditUser(View):
             error_message = ''
             user = request.user
             data = form.cleaned_data
-            currency = request.POST['currency']
             email = data['email']
             password1 = data['new_password1']
             password2 = data['new_password2']
             if user.check_password(data['old_password']):
-                if currency != request.session['currency']:
-                    request.session['currency'] = currency
-                    if UserSettings.objects.all().filter(id=request.user.id) is not None:
-                        usersettings = UserSettings.objects.get(id=request.user.id)
-                        usersettings.currency = currency
-                    else:
-                        usersettings = UserSettings(id = request.user.id, currency = currency)
-                    usersettings.save()
-                    info_message = 'Currency preference updated.\n'
                 if email != request.user.email:
                     user.email = email
                     user.save()
@@ -102,3 +91,13 @@ class EditUser(View):
                                                          'options': options,})
 
 
+class ChangeCurrency(View):
+    def post(self, request):
+        request.session['currency'] = currency
+        if UserSettings.objects.all().filter(id=request.user.id) is not None:
+            usersettings = UserSettings.objects.get(id=request.user.id)
+            usersettings.currency = currency
+        else:
+            usersettings = UserSettings(id=request.user.id, currency=currency)
+        usersettings.save()
+        info_message = 'Currency preference updated.\n'

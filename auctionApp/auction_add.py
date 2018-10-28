@@ -21,6 +21,8 @@ class AddAuction(View):
             return redirect('home', permanent=True)
 
         global rate
+        if 'currency' not in request.session:
+            request.session['currency'] = 'EUR'
         currency = request.session['currency']
         rate = Currency.get_rate(currency)
 

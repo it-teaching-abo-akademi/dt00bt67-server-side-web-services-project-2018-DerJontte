@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="67e8b745-20c9-489d-be53-5b1b920e718d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionApp/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctionApp/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,16 +38,17 @@
     <session id="-1823227081">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -56,7 +59,7 @@
           <entry key="html" value="15739" />
           <entry key="http" value="767" />
           <entry key="log" value="2" />
-          <entry key="py" value="61537" />
+          <entry key="py" value="61599" />
           <entry key="txt" value="48" />
           <entry key="xml" value="7" />
         </counts>
@@ -69,7 +72,7 @@
           <entry key="HTTP Request" value="6" />
           <entry key="JSON" value="11" />
           <entry key="PLAIN_TEXT" value="77" />
-          <entry key="Python" value="67941" />
+          <entry key="Python" value="68003" />
           <entry key="Scratch" value="750" />
           <entry key="XML" value="7" />
         </counts>
@@ -84,7 +87,7 @@
           <entry key="json" value="5" />
           <entry key="log" value="54" />
           <entry key="md" value="1" />
-          <entry key="py" value="238" />
+          <entry key="py" value="240" />
           <entry key="sqlite3" value="1" />
           <entry key="txt" value="4" />
         </counts>
@@ -98,7 +101,7 @@
           <entry key="JSON" value="5" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="59" />
-          <entry key="Python" value="238" />
+          <entry key="Python" value="240" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="7" />
         </counts>
@@ -106,10 +109,29 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auctionApp/auction_add.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/auctionApp/login.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -177,9 +199,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response15.html" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -230,10 +249,10 @@
         <option value="$PROJECT_DIR$/auctionApp/auction_bid.py" />
         <option value="$PROJECT_DIR$/auctionApp/models.py" />
         <option value="$PROJECT_DIR$/auctionApp/views.py" />
-        <option value="$PROJECT_DIR$/auctionApp/login.py" />
         <option value="$PROJECT_DIR$/auctionApp/tests.py" />
         <option value="$PROJECT_DIR$/auctionApp/cron_jobs.py" />
         <option value="$PROJECT_DIR$/auctionApp/auctions_browse.py" />
+        <option value="$PROJECT_DIR$/auctionApp/login.py" />
       </list>
     </option>
   </component>
@@ -284,11 +303,21 @@
             <path>
               <item name="AnotherAuctionSite" type="b2602c69:ProjectViewProjectNode" />
               <item name="AnotherAuctionSite" type="462c0819:PsiDirectoryNode" />
+              <item name="auctionApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnotherAuctionSite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnotherAuctionSite" type="462c0819:PsiDirectoryNode" />
               <item name="restAPI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnotherAuctionSite" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="AnotherAuctionSite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
@@ -1432,16 +1461,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.19829424" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.20042644" />
       <window_info id="Structure" order="1" sideWeight="0.5007429" side_tool="true" weight="0.19829424" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="REST Client" order="0" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.7729211" weight="0.2708559" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.7729211" visible="true" weight="0.2708559" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.49840087" visible="true" weight="0.24160346" />
+      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.49840087" weight="0.24160346" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.22707888" side_tool="true" weight="0.2708559" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
@@ -1477,13 +1507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
     <entry file="file://$PROJECT_DIR$/templates/auction_table.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1491,13 +1515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" />
     <entry file="file://$PROJECT_DIR$/templates/browse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1538,33 +1556,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-212953-2832918236296.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-212758-2832918147024.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-212758-2832918049512.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-212717-2832917591152.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-213848-2244251736160.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-213848-2244251736776.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-224734-1561537886752.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-230332-2776089758744.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/20181027-230445-1566367218712.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-212953-2832918236296.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-212758-2832918147024.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-212758-2832918049512.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-212717-2832917591152.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-213848-2244251736160.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-213848-2244251736776.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-224734-1561537886752.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-230332-2776089758744.log" />
+    <entry file="file://$PROJECT_DIR$/tmp/20181027-230445-1566367218712.log" />
     <entry file="file://$PROJECT_DIR$/templates/bidding_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1603,10 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#88#0" expanded="true" />
-            <marker date="1540739708808" expanded="true" signature="795:1109" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1621,9 +1617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1641,9 +1634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1651,9 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#234#243#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1664,10 +1651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="104" column="30" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-            <marker date="1540648313919" expanded="true" signature="4432:4441" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1681,23 +1664,10 @@
     <entry file="file://$PROJECT_DIR$/auctionApp/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/auctionApp/auction_add.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auctionApp/auction_edit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
           <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1726,13 +1696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auctionApp/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auctionApp/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1748,9 +1711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1758,23 +1718,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <marker date="1540743050284" expanded="true" signature="141:146" ph="..." />
-            <marker date="1540743050284" expanded="true" signature="1271:1275" ph="..." />
-            <marker date="1540743050284" expanded="true" signature="2309:2318" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auctionApp/cron_jobs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/auctionApp/currency.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1811,6 +1759,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auctionApp/auction_add.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auctionApp/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

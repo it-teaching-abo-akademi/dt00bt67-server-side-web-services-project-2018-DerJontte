@@ -5,7 +5,6 @@ from django.shortcuts import redirect, render
 from django.views import View
 
 from auctionApp.auctions_browse import BrowseAuctions
-from auctionApp.currency import *
 from auctionApp.models import *
 
 admin_mail = 'broker@awesomeauctions.com'

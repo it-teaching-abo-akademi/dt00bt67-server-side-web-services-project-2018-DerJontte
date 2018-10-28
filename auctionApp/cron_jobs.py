@@ -1,7 +1,4 @@
-import traceback
-
 from django.core.mail import send_mail
-from django.db import transaction
 from django.db.models.functions import datetime
 from django_cron import CronJobBase, Schedule
 

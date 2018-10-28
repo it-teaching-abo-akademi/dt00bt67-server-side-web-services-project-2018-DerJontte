@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.views import View
 from auctionApp.currency import Currency
 from auctionApp.models import Auction
-from django import template
 
 
 class BrowseAuctions(View):

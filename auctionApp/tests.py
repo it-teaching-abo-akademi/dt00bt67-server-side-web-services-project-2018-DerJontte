@@ -1,12 +1,6 @@
-from datetime import datetime, timedelta
-import pytz
-
+from datetime import timedelta
 from django.test import TestCase, Client
 from django.utils import timezone
-
-from auctionApp.auction_add import AddAuction, auction
-from auctionApp.views import make_slug_hash
-from auctionApp.models import Auction
 
 
 class AuctionTestCase(TestCase):

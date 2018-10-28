@@ -25,16 +25,6 @@ class Login(View):
             pass
         return referer(request)
 
-    def request_login(request, username, password):
-        try:
-            user = User.objects.get(username=username)
-            if user.check_password(password):
-                login(request, user)
-                return True
-            return False
-        except:
-            return False
-
 
 class Logout(View):
     def get(self, request):
@@ -42,8 +32,11 @@ class Logout(View):
 
     def post(self, request):
         override = request.session['override'] if 'override' in request.session else None
+        search = request.session['search_query'] if 'search_query' in request.session else None
         logout(request)
         if override is not None:
             request.session['override'] = override
+        if search is not None:
+            request.session['search_query'] = search
         return referer(request)
 

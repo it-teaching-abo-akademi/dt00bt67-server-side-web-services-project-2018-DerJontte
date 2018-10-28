@@ -11,6 +11,8 @@ class Search(View):
     def get(self, request):
         if 'search_query' in request.session:
             return self.post(request, query=request.session['search_query'])
+        if not 'results' in locals():
+            results = ''
         return render(request, 'search_results.html', {'results': results})
 
     def post(self, request, **messages):

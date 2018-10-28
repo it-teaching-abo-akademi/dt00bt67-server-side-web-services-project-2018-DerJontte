@@ -5,7 +5,8 @@ from django.db import models
 # Create your models here.
 class UserSettings(models.Model):
     id = models.IntegerField(primary_key=True, unique=True)
-    currency = models.CharField(max_length=3)
+    currency = models.CharField(max_length=3, null=True, blank=True)
+
 
 
 class Auction(models.Model):
@@ -50,12 +51,4 @@ class Bid(models.Model):
 class ExchangeRate(models.Model):
      code = models.CharField(primary_key=True, max_length=3)
      rate = models.FloatField()
-     last_updated = models.TimeField(auto_now=True, null=True, blank=True)
-
-
-class UserSettings(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True)
-    currency = models.CharField(max_length=3, null=True, blank=True)
-
-    def __str__(self):
-        return str(self.owner.username)
+     last_updated = models.DateTimeField(auto_now=True)

@@ -1,7 +1,7 @@
-<form action="{% url 'change_currency' %}" method="POST" class="login" style="background-color: #6DDCBD; padding: 3px;border: black; border-style: dotted">
+<form action="{% url 'change_currency' %}" method="POST" class="login" style="background-color: #6DDCBD; padding: 3px;border: black; border-style: dotted"">
     {% csrf_token %}
     View listings in:
-    <select>
+    <select name="currency" id="currency" onchange="this.form.submit()">
         {% for code in request.session.currencies %}
             <option value="{{ code }}"
                 {% if code == request.session.currency %}

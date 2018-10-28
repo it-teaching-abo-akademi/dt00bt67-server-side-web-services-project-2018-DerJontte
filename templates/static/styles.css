@@ -96,6 +96,7 @@ th {
 }
 
 .auction_item {
+    max-width: 95%;
     background-color: white;
     border-width: 9px;
     border-color: black;

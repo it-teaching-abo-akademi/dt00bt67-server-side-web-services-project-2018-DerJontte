@@ -16,11 +16,11 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td valign="top">
             Item description
         </td>
         <td>
-            {{ auction.description }}
+            <pre>{{ auction.description }}</pre>
         </td>
     </tr>
     <tr>
@@ -36,7 +36,7 @@
             Number of bids
         </td>
         <td>
-            {{ auction.bidders_set.count }}
+            {{ auction.bid_set.count }}
         </td>
     </tr>
     <tr>
@@ -60,7 +60,11 @@
             Auction closing time
         </td>
         <td>
-            {{ auction.time_closing }}
+            {% if auction_time_closing %}
+                {{ auction_time_closing }}
+            {% else %}
+                {{ auction.time_closing }}
+            {% endif %}
         </td>
     </tr>
     <tr>
@@ -68,7 +72,11 @@
             Posted on
         </td>
         <td>
-            {{ auction.time_posted }}
+            {% if auction_time_posted %}
+                {{ auction_time_posted }}
+            {% else %}
+                {{ auction.time_posted }}
+            {% endif %}
         </td>
     </tr>
 </table>

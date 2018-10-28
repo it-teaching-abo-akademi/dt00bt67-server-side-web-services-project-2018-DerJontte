@@ -3,15 +3,15 @@
 {% block content %}
     {% include 'currency_picker.html' %}
     Number of auctions: {{ auctions.count }}<br><br>
-    <table border="0" cellpadding="4">
+    <table border="0" cellpadding="4" cellspacing="8" style="max-width: 90%">
             <tr>
-                <th width="100">
+                <th width="150">
                     Item name
                 </th>
                 <th width="350">
                     Description
                 </th>
-                <th colspan="2" width="300">
+                <th width="300">
                     Current price
                 </th>
                 <th width="250">
@@ -22,18 +22,15 @@
                 </th>
             </tr>
         {% for auction in auctions %}
-            <tr>
+            <tr valign="top">
                 <td>
                     <a href="{% url 'auctions' %}{{ auction.id }}">{{ auction.title }}</a>
                 </td>
                 <td>
-                    {{ auction.description }}
+                    <pre>{{ auction.description }}</pre>
                 </td>
-                <td width="75">
+                <td width="130">
                     {{ auction.current_price }}
-                </td>
-                <td>
-                    {{ request.session.currency }}
                 </td>
                 <td>
                     {{ auction.time_closing }}

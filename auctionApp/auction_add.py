@@ -18,7 +18,7 @@ class AddAuction(View):
 
     def get(self, request):
         if not request.user.is_authenticated:
-            return redirect('home')
+            return redirect('home', permanent=True)
 
         global rate
         currency = request.session['currency']
@@ -49,7 +49,7 @@ class AddAuction(View):
             description = data['description']
             starting_price = data['starting_price']
 
-            EET = pytz.timezone('EET')
+            EET = pytz.timezone('UTC')
             time_closing = request.POST['end_datetime']
             parts = time_closing.split('T')
             year = int(parts[0].split('-')[0])
@@ -57,8 +57,8 @@ class AddAuction(View):
             day = int(parts[0].split('-')[2])
             hours = int(parts[1].split(':')[0])
             minutes = int(parts[1].split(':')[1])
-            time_closing = datetime(year=year, month=month, day=day, hour=hours, minute=minutes)
-            time_posted = datetime.now()
+            time_closing = datetime(year=year, month=month, day=day, hour=hours, minute=minutes).replace(tzinfo=EET)
+            time_posted = datetime.now().replace(tzinfo=EET)
 
             global auction
             auction = Auction(seller_id = request.user.id,
@@ -73,6 +73,8 @@ class AddAuction(View):
                               hash_id = make_slug_hash(title + description))
 
             return render(request, 'confirm_auction.html', {'auction': auction,
+                                                            'auction_time_closing': time_closing.strftime('%H:%M %d/%m/%y'),
+                                                            'auction_time_posted': time_posted.strftime('%H:%M %d/%m/%y'),
                                                             'starting_price': starting_price,
                                                             'seller_name': request.user.username})
 
@@ -100,6 +102,6 @@ class AddAuction(View):
 
             return BrowseAuctions.fetch_auction(request, auction.id, info_message='Auction added')
         else:
-            return redirect('browse')
+            return redirect('auctions')
 
 

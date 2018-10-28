@@ -24,7 +24,7 @@
 </script>
 
 {% if auction.active and not auction.banned %}
-<form action="{%  url 'auctionBid' auction.id %}" method="post" onsubmit="return validateForm()">
+<form action="{% url 'auctionBid' auction.id %}" method="post" onsubmit="return validateForm()">
     {% csrf_token %}
     <input id="new_bid" name="new_bid" value="{{ auction.current_price }}" oninput="updateCur()" size="3" style="text-align: center; padding-right: 5px"/> EUR
     {% if currency != 'EUR' %}

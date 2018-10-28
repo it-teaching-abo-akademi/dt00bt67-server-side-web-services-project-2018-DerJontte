@@ -1,20 +1,5 @@
-"""AnotherAuctionSite URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from auctionApp.account_management import EditUser, AddUser, ChangeCurrency
 from auctionApp.auction_add import AddAuction
@@ -22,7 +7,8 @@ from auctionApp.auction_bid import BidAuction
 from auctionApp.auction_edit import EditAuction
 from auctionApp.auctions_browse import BrowseAuctions
 from auctionApp.login import Login, Logout
-from auctionApp.views import home, Search, BanAuction, ListBanned
+from auctionApp.search import Search
+from auctionApp.views import home, BanAuction, ListBanned
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -45,4 +31,6 @@ urlpatterns = [
     path('admin_task/', BanAuction.as_view(), name='ban_auction'),
     path('admin_task/ban/<int:number>', BanAuction.as_view(), name='auctionBan'),
     path('admin_task/list_banned/', ListBanned.as_view(), name='auctionListBanned'),
+
+    path('api/', include('restAPI.urls')),
 ]

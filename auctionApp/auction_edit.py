@@ -1,3 +1,6 @@
+import time
+from re import split
+
 from django.db import transaction
 from django.db.backends import sqlite3
 from django.http import HttpResponse
@@ -11,8 +14,8 @@ from auctionApp.models import Auction
 class EditAuction(View):
     def get(self, request, query):
         auction = Auction.objects.get(hash_id=query)
-        if request.user.is_authenticated and request.user.id != auction.seller_id:
-            owner = request.user.id == auction.seller_id
+        owner = request.user.id == auction.seller_id
+        if request.user.is_authenticated and not owner:
             error_message = 'You do not have permission to edit this auction.'
             return render(request, 'view_auction_item.html', {'auction': auction,
                                                               'owner': owner,
@@ -33,6 +36,10 @@ class EditAuction(View):
                 error_message = None
                 info_message = 'Auction successfully updated.'
         owner = request.user.id == auction.seller_id
+
+        stripped = split('edit', request.META['HTTP_REFERER'])[0]
+        request.session['override'] = stripped + str(auction.id)
+
         return render(request, 'view_auction_item.html', {'auction': auction,
                                                           'owner': owner,
                                                           'error_message': error_message,

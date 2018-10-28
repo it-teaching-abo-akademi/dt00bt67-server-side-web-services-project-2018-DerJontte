@@ -8,7 +8,7 @@ from django.views import View
 
 from auctionApp.currency import Currency
 from auctionApp.forms import AddNewUserForm, EditUserForm
-from auctionApp.models import UserSettings
+from auctionApp.views import referer, UserSettings
 
 
 class AddUser(View):
@@ -93,11 +93,13 @@ class EditUser(View):
 
 class ChangeCurrency(View):
     def post(self, request):
+        currency = request.POST['currency']
         request.session['currency'] = currency
-        if UserSettings.objects.all().filter(id=request.user.id) is not None:
-            usersettings = UserSettings.objects.get(id=request.user.id)
-            usersettings.currency = currency
-        else:
-            usersettings = UserSettings(id=request.user.id, currency=currency)
-        usersettings.save()
-        info_message = 'Currency preference updated.\n'
+        if request.user.is_authenticated:
+            if request.user.id in UserSettings.objects.all():
+                usersettings = UserSettings.objects.get(id=request.user.id)
+                usersettings.currency = currency
+            else:
+                usersettings = UserSettings(id=request.user.id, currency=currency)
+            usersettings.save()
+        return referer(request)
